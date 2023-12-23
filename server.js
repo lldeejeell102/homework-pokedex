@@ -35,6 +35,10 @@ app.get("/pokemon", async (req, res) => {
         res.send(error)
     }
 })
+// create a template for the data using the current data in pokemon.js then only rewrite what the inputs are. Also rewrite the ID by array.length+1
+// make shallow duplicate ..array[0]
+
+
 
 // NEW - Get
 app.get("/pokemon/new", async (req, res) => {
@@ -53,9 +57,12 @@ app.get("/pokemon/new", async (req, res) => {
 // CREATE - Post
 app.post("/pokemon/new", async (req, res) => {
     try{
-        let newPokemon = await req.config.pokemon.create(req.body)
-        pokemons.push(newPokemon)
-        res.redirect("/pokemon")
+        // let newPokemon = await req.config.pokemon.create(req.body)
+        // pokemons.push(newPokemon)
+        // res.redirect("/pokemon")
+        console.log(req.body)
+        console.log(pokemons[0])
+        res.redirect("/pokemon/new")
     }catch(error){
         res.send(error)
     }

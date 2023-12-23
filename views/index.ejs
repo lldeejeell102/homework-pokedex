@@ -4,8 +4,8 @@
     <%- include("./partials/nav.ejs") %>
     <div class="titlescreen">
         <h1 class="title1">Hello there!</h1>
-        <h1 class="title2">Welcome to the world of Pokemon</h1>
-        <h2>Here are all the List of Pokemons</h2>
+        <!-- <h1 class="title2">Welcome to the world of Pokemon</h1> -->
+        <h2>Here are the List of Pokemons</h2>
         <% for(let i = 0; i < pokemons.length; i++){ %>
             <%= pokemons[i].name %></a>
             <br><a href="/pokemon/<%= pokemons[i].id %>"><img src="<%= pokemons[i].img %>" alt="n/A"></a><br>
