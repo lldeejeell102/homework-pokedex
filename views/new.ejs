@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<%- include("./partials/head.ejs") %>
+<title>Pallet Town</title>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="titlescreen">
+        <h1 class="title1">Add Your Own Pokemon</h1>
+        <form action="/pokemon" method="post" id="newform">
+            <fieldset>
+                <legend>Add a Pokemon to the Pokedex</legend>
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name"><br>
+                    
+                    <label for="picture">Pokemon Image</label>
+                    <input type="file" name="picture" id="picture"><br>
+                    
+                    <label for="type">Type</label>
+                    <input type="text" name="type" id="type"><br><br>
+                <input type="submit" value="Add Pokemon to Pokedex">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

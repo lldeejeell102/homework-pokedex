@@ -20,6 +20,7 @@ const { PORT = 3013 } = process.env;
 app.use(morgan("dev"))
 // to allow method overrides
 app.use(methodOverride("_method"))
+app.use(express.urlencoded({ extended: false }))
 
 
 
@@ -36,12 +37,29 @@ app.get("/pokemon", async (req, res) => {
 })
 
 // NEW - Get
+app.get("/pokemon/new", async (req, res) => {
+    try{
+        res.render("new.ejs")
+    } catch(error) {
+        res.send(error)
+    }
+})
+
 
 // DESTORY - Delete
 
 // UPDATE - Put
 
 // CREATE - Post
+app.post("/pokemon/new", async (req, res) => {
+    try{
+        let newPokemon = await req.config.pokemon.create(req.body)
+        pokemons.push(newPokemon)
+        res.redirect("/pokemon")
+    }catch(error){
+        res.send(error)
+    }
+})
 
 // EDIT - Get
 
