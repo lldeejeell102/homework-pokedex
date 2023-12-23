@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pallet Town</title>
+<body>
+    <div class="titlescreen">
+        <h1 class="title1">Hello there!</h1>
+        <h1 class="title2">Welcome to the world of Pokemon</h1>
+        <h2>Here are all the List of Pokemons</h2>
+        <% for(let i = 0; i < pokemons.length; i++){ %>
+            <%= pokemons[i].name %></a>
+            <br><a href="/pokemon/<%= pokemons[i].id %>"><img src="<%= pokemons[i].img %>" alt="n/A"></a><br>
+            <!-- <ul>
+                Type:
+                <#% for(let x = 0; x < pokemons[i].type.length; x++){ %>
+                    <li><#%= pokemons[i].type[x] %></li>
+                <#%} %>
+            </ul> -->
+        <%} %>
+    </div>
+</body>
+</html>
