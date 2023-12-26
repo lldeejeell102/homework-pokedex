@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<%- include("./partials/head.ejs") %>
+<title>Pallet Town</title>
+<body>
+    <%- include("./partials/nav.ejs") %>
+    <div class="titlescreen">
+        <h1 class="title1"> <%= name %> </h1>
+        <h1> <%= pokemonsIndex.id %></h1>
+        <br><img src="<%= pokemonsIndex.img %>" alt="<%= name %> Image>"></a><br>
+        <h2>Type: <%= pokemonsIndex.type %></h2>
+        <h3><%= pokemonsIndex.misc.classification %></h3>
+        <!-- <ul><#% for(let i = 0; i < pokemonsIndex.damages.length; i++){%>
+                <li><#% pokemonsIndex.damages[i] %></li>
+            <#% } %>
+            </ul> -->
+        
+    </div>
+</body>
+</html>

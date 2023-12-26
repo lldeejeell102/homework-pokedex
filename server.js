@@ -90,10 +90,26 @@ app.post("/pokemon/new", async (req, res) => {
 })
 
 // EDIT - Get
+// app.get("/pokemon/:id", (req, res) => {
+//     console.log("testing")
+// })
+
 
 // SHOW - Get
-app.get("/:id", (req, res) => {
-    res.send("testing")
+app.get("/pokemon/:id", (req, res) => {
+    const id = req.params.id
+    let name = ""
+    let pokemonsIndex = 0
+    for (let i = 0; i < pokemons.length; i++){
+        if(pokemons[i].id === id){
+            name = pokemons[i].name
+            pokemonsIndex = pokemons[i]
+            // console.log(pokemons[i].damages)
+        }
+    }
+    res.render("show.ejs", {name, id, pokemonsIndex})
+    // res.render("show.ejs", {name, id})
+    // res.send()
 })
 /////////////////////////////////////////////////////////////////////////////////////////////
 // Listener
