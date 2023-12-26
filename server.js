@@ -7,6 +7,7 @@ const express = require("express")
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 const pokemons = require("./config/pokemon.js")
+const pokemon = require("./config/pokemon.js")
 
 // created app object
 const app = express()
@@ -31,6 +32,7 @@ app.use(express.urlencoded({ extended: false }))
 app.get("/pokemon", async (req, res) => {
     try {
         res.render("index.ejs", {pokemons})
+        console.log(pokemons.length)
     } catch (error) {
         res.send(error)
     }
@@ -60,9 +62,28 @@ app.post("/pokemon/new", async (req, res) => {
         // let newPokemon = await req.config.pokemon.create(req.body)
         // pokemons.push(newPokemon)
         // res.redirect("/pokemon")
-        console.log(req.body)
-        console.log(pokemons[0])
-        res.redirect("/pokemon/new")
+        // const newPokemonName = req.body.name
+        const newPokemonName = req.body.name
+        const newPokemonPicture = req.body.picture
+        const newPokemonType = req.body.type
+        let newPokemonData = 
+        {
+            id: pokemons[0].id, 
+            name: pokemons[0].name,
+            img: pokemons[0].img,
+            type: pokemons[0].type
+        }
+        newPokemonData.id = pokemons.length++
+        newPokemonData.name = newPokemonName
+        newPokemonData.img = newPokemonPicture
+        newPokemonData.type = newPokemonType
+        pokemon.push(newPokemonData)
+        let removed = pokemon.pop()
+        console.log(removed)
+        // console.log(req.body.name)
+        // console.log(req.body.picture)
+        // console.log(req.body.type)
+        res.redirect("/pokemon")
     }catch(error){
         res.send(error)
     }
