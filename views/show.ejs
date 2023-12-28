@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<%- include("./partials/head.ejs") %>
 <title>Pallet Town</title>
+<%- include("./partials/head.ejs") %>
 <body>
     <nav>
-        <a href="/pokemon/<%= id %>/edit">Edit a Pokemon</a> <%- include("./partials/nav.ejs") %>
+        <%- include("./partials/nav.ejs") %> <a href="/pokemon/<%= id %>/edit">Edit a Pokemon</a>
     </nav>
     <div class="titlescreen">
         <h1 class="title1"> <%= name %> </h1>
