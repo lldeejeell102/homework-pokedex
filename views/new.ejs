@@ -2,7 +2,9 @@
 <%- include("./partials/head.ejs") %>
 <title>Pallet Town</title>
 <body>
-    <%- include("./partials/nav.ejs") %>
+    <nav>
+        <%- include("./partials/nav.ejs") %>
+    </nav>
     <div class="titlescreen">
         <h1 class="title1">Add Your Own Pokemon</h1>
         <form action="/pokemon/new" method="post" id="newform">

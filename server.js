@@ -54,7 +54,6 @@ app.get("/pokemon/new", async (req, res) => {
 
 // DESTORY - Delete
 
-// UPDATE - Put
 
 // CREATE - Post
 app.post("/pokemon/new", async (req, res) => {
@@ -90,10 +89,34 @@ app.post("/pokemon/new", async (req, res) => {
 })
 
 // EDIT - Get
-// app.get("/pokemon/:id", (req, res) => {
-//     console.log("testing")
-// })
+app.get("/pokemon/:id/edit", (req, res) => {
+    const id = req.params.id
+    let pokemonsIndex = 0
+    const body = req.body
+    for (let i = 0; i < pokemons.length; i++){
+        if(pokemons[i].id === id){
+            pokemonsIndex = pokemons[i]
+            // console.log(pokemons[i].damages)
+        }
+    }
+    res.render("edit.ejs", {pokemonsIndex, body,id})
+    // pokemons[id] = body
+})
 
+// UPDATE - Put
+app.put("/pokemon/:id", (req,res) =>{
+    const id = req.params.id
+    const name = req.body.name
+    const type = req.body.type
+    for (let i = 0; i < pokemons.length; i++){
+        if(pokemons[i].id === id){
+            pokemonsIndex = pokemons[i]
+        }
+    }
+    pokemonsIndex.name = name
+    pokemonsIndex.type = type
+    res.redirect("/pokemon")
+})
 
 // SHOW - Get
 app.get("/pokemon/:id", (req, res) => {

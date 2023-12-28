@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<%- include("./partials/head.ejs") %>
+<title>Edit <%= pokemonsIndex.name %></title>
+<body>
+    <nav>
+        <%- include("./partials/nav.ejs") %>
+    </nav>
+    <div class="titlescreen">
+        <h1>Edit Your Pokemon</h1>
+        <form action="/pokemon/<%= id %>?_method=PUT" method="post" id="editform">
+            <fieldset>
+                <legend>Edit <%= pokemonsIndex.name %></legend>
+                    <label>Name</label>
+                    <input type="text" name="name" id="name"><br>
+                    <br>
+                    <label for="type">Type</label>
+                    <input type="text" name="type" id="type"><br><br>
+                    <input type="submit" value="Edit Pokemon">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
