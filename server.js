@@ -29,10 +29,10 @@ app.use(express.urlencoded({ extended: false }))
 // ROUTES
 /////////////////////////////////////////////////////////////////////////////////////////////
 // INDEX - Get
-app.get("/pokemon", async (req, res) => {
+app.get("/pokemon", (req, res) => {
     try {
         res.render("index.ejs", {pokemons})
-        console.log(pokemons.length)
+        // console.log(pokemons.length)
     } catch (error) {
         res.send(error)
     }
@@ -52,9 +52,6 @@ app.get("/pokemon/new", async (req, res) => {
 })
 
 
-// DESTORY - Delete
-
-
 // CREATE - Post
 app.post("/pokemon/new", async (req, res) => {
     try{
@@ -65,27 +62,44 @@ app.post("/pokemon/new", async (req, res) => {
         const newPokemonName = req.body.name
         const newPokemonPicture = req.body.picture
         const newPokemonType = req.body.type
-        let newPokemonData = 
+        let newPokemonData =
         {
             id: pokemons[0].id, 
             name: pokemons[0].name,
             img: pokemons[0].img,
             type: pokemons[0].type
         }
-        newPokemonData.id = pokemons.length++
+        newPokemonData.id = pokemons.length + 1
         newPokemonData.name = newPokemonName
         newPokemonData.img = newPokemonPicture
         newPokemonData.type = newPokemonType
-        pokemon.push(newPokemonData)
-        let removed = pokemon.pop()
-        console.log(removed)
-        // console.log(req.body.name)
-        // console.log(req.body.picture)
-        // console.log(req.body.type)
+        pokemons.push(newPokemonData)
+        // let removed = pokemon.pop()
+        // console.log(removed)
+        console.log(newPokemonData.id)
+        console.log(newPokemonData.name)
+        // console.log(newPokemonData.picture)
+        // console.log(newPokemonData.type)
         res.redirect("/pokemon")
     }catch(error){
         res.send(error)
     }
+})
+
+
+// DESTORY - Delete
+app.delete("/pokemon/:id", (req,res) => {
+    const id = req.params.id
+    console.log(id)
+    for (let i = 0; i < pokemons.length; i++){
+        if(pokemons[i].id === id){
+            pokemonDelete = pokemons[i]
+            // console.log(pokemonDelete)
+        }
+    }
+    console.log(pokemonDelete)
+    pokemons.slice(pokemonDelete,1)
+    res.redirect("/pokemon")
 })
 
 // EDIT - Get
