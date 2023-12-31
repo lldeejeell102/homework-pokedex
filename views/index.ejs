@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<%- include("./partials/head.ejs") %>
+<head>
+    <%- include("./partials/head.ejs") %>
+    <%- include("./partials/stylecss.ejs") %>
+</head>
 <body>
     <nav>
         <%- include("./partials/nav.ejs") %>
     </nav>
     <div class="titlescreen">
         <h1 class="title1">Hello there!</h1>
-        <!-- <h1 class="title2">Welcome to the world of Pokemon</h1> -->
         <h2>Here are the list of Pokemons</h2>
             <% for(let i = 0; i < pokemons.length; i++){ %>
                 <div class="pokemonindexblock">
