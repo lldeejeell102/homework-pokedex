@@ -8,14 +8,21 @@
         <h1 class="title1">Hello there!</h1>
         <!-- <h1 class="title2">Welcome to the world of Pokemon</h1> -->
         <h2>Here are the list of Pokemons</h2>
-        <% for(let i = 0; i < pokemons.length; i++){ %>
-            <%= pokemons[i].name %>
-            <br><a href="/pokemon/<%= pokemons[i].id %>"><img src="<%= pokemons[i].img %>" alt="n/A"></a><br>
-            
-            <!-- DELETE FORM -->
-            <form action="/pokemon/<%= pokemons[i].id %>?_method=delete" method="post">
-                <input type="submit" value="delete">
-            </form>
+            <% for(let i = 0; i < pokemons.length; i++){ %>
+                <div class="pokemonindexblock">
+                    <div class="pokemonindexblockname">
+                        <%= pokemons[i].name %>
+                    </div>
+                    <div class="pokemonindexblockimg">
+                        <a href="/pokemon/<%= pokemons[i].id %>"><img src="<%= pokemons[i].img %>" alt="n/A"></a>
+                    </div>
+                    <div class="pokemonindexblockdelete">
+                        <form action="/pokemon/<%= pokemons[i].id %>?_method=delete" method="post">
+                            <input type="submit" value="delete">
+                        </form>
+                    </div>
+                </div>
+                
             <!-- <ul>
                 Type:
                 <#% for(let x = 0; x < pokemons[i].type.length; x++){ %>
