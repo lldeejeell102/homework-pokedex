@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <title>Pallet Town</title>
-<%- include("./partials/head.ejs") %>
+<head>
+    <%- include("./partials/head.ejs") %>
+    <style>
+        nav{
+            background-color: black;
+            color: white;
+        }
+        .title-nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+        }
+        a:link, a:visited, a:hover {
+            text-decoration: none;
+
+        }
+        a:hover{
+            color: #FB1B1B;
+        }
+        a{
+            color: white;
+        }
+    </style>
+</head>
 <body>
     <nav>
-        <%- include("./partials/nav.ejs") %> <a href="/pokemon/<%= id %>/edit">Edit a Pokemon</a>
+        <div class="title-nav">
+            <div class="navlinks">
+                <a href="/pokemon"><h1>Pokedex</h1></a>
+            </div>
+            <div>
+                <div class="navlinks">
+                    <a href="/pokemon/new">Add a Pokemon</a>
+                </div>
+                <div>
+                    <a href="/pokemon/<%= id %>/edit">Edit a Pokemon</a>
+                </div>
+            </div>
+        </div>
     </nav>
     <div class="titlescreen">
         <h1 class="title1"> <%= name %> </h1>

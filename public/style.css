@@ -1,4 +1,28 @@
-.pokemonindexblock{
+nav{
+    background-color: black;
+    color: white;
+}
+.title-nav{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+a:link, a:visited, a:hover {
+    text-decoration: none;
+
+}
+a:hover{
+    color: #FB1B1B;
+}
+a{
+    color: white;
+}
+.title1{
+    text-align: center;
+    font-size: 36px;
+    background: -webkit-linear-gradient(#0075BE,#FFCC00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
