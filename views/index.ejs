@@ -1,22 +1,89 @@
 <!DOCTYPE html>
 <head>
     <%- include("./partials/head.ejs") %>
-    <%- include("./partials/stylecss.ejs") %>
+    <style>
+    /* Red: #FB1B1B
+    Gray: #DFDFDF
+    Black
+    White
+    
+    Dark Blue: #0A285F
+    Blue: #0075BE
+    Dark Yellow: #D5A100
+    Yellow: #FFCC00*/
+        nav{
+            background-color: black;
+            color: white;
+        }
+        .title-nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem;
+        }
+        a:link, a:visited, a:hover {
+            text-decoration: none;
+
+        }
+        a:hover{
+            color: #FB1B1B;
+        }
+        a{
+            color: white;
+        }
+        .title1{
+            text-align: center;
+            font-size: 36px;
+            background: -webkit-linear-gradient(#0075BE,#FFCC00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body{
+            background-color: whitesmoke;
+            max-width: 1200px;
+            border: .5rem;
+        }
+        .titlescreen{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            max-width: 1200px;
+        }
+        .pokemonindexblockname{
+            color: #FFCC00;
+            text-shadow: .5px .5px 1px #0A285F;   
+        }
+        .pokemonindexblock{
+            width: 50%;
+            align-items: center;
+            background-color: white;
+            box-shadow: 5px 5px #DFDFDF;
+            /* margin: 10px; */
+        }
+        .pokemonindexblockimg{
+            display: flex;
+            padding: 0.5rem;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <%- include("./partials/nav.ejs") %>
     </nav>
+    <h1 class="title1">Hello there!</h1>
+    <h2 class="title1">Here are the list of Pokemons</h2>
     <div class="titlescreen">
-        <h1 class="title1">Hello there!</h1>
-        <h2>Here are the list of Pokemons</h2>
             <% for(let i = 0; i < pokemons.length; i++){ %>
                 <div class="pokemonindexblock">
                     <div class="pokemonindexblockname">
                         <%= pokemons[i].name %>
                     </div>
                     <div class="pokemonindexblockimg">
-                        <a href="/pokemon/<%= pokemons[i].id %>"><img src="<%= pokemons[i].img %>" alt="n/A"></a>
+                            <a href="/pokemon/<%= pokemons[i].id %>"><img name="pokemonjpg" src="<%= pokemons[i].img %>" alt="n/A"></a>
                     </div>
                     <div class="pokemonindexblockdelete">
                         <form action="/pokemon/<%= pokemons[i].id %>?_method=delete" method="post">
@@ -24,13 +91,6 @@
                         </form>
                     </div>
                 </div>
-                
-            <!-- <ul>
-                Type:
-                <#% for(let x = 0; x < pokemons[i].type.length; x++){ %>
-                    <li><#%= pokemons[i].type[x] %></li>
-                <#%} %>
-            </ul> -->
         <%} %>
     </div>
 </body>
