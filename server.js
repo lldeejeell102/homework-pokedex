@@ -22,6 +22,7 @@ app.use(morgan("dev"))
 // to allow method overrides
 app.use(methodOverride("_method"))
 app.use(express.urlencoded({ extended: false }))
+app.use("/public",express.static("public")) // use express.static to be able to connect into other files. the first "/public" in the beginning gates
 
 
 
