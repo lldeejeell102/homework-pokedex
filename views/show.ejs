@@ -2,29 +2,6 @@
 <title>Pallet Town</title>
 <head>
     <%- include("./partials/head.ejs") %>
-    <style>
-        nav{
-            background-color: black;
-            color: white;
-        }
-        .title-nav{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem;
-        }
-        a:link, a:visited, a:hover {
-            text-decoration: none;
-
-        }
-        a:hover{
-            color: #FB1B1B;
-        }
-        a{
-            color: white;
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -36,18 +13,40 @@
                 <div class="navlinks">
                     <a href="/pokemon/new">Add a Pokemon</a>
                 </div>
-                <div>
-                    <a href="/pokemon/<%= id %>/edit">Edit a Pokemon</a>
-                </div>
             </div>
         </div>
     </nav>
     <div class="titlescreen">
-        <h1 class="title1"> <%= name %> </h1>
-        <h1> <%= pokemonsIndex.id %></h1>
-        <br><img src="<%= pokemonsIndex.img %>" alt="<%= name %> Image>"></a><br>
-        <h2>Type: <%= pokemonsIndex.type %></h2>
-        <h3><%= pokemonsIndex.misc.classification %></h3>
+        <div class="pokemonindexblock">
+            <div class="pokemonindexblockname">
+                <h1> <%= name %> </h1>
+                <h1> <%= pokemonsIndex.id %></h1>
+            </div>
+            <br><img src="<%= pokemonsIndex.img %>" alt="<%= name %> Image>"></a><br>
+            <div class="pokemonshowtext">
+                <h2>Type: <%= pokemonsIndex.type %></h2>
+                <div class="pokemonshowdescription">
+                    <h3><%= pokemonsIndex.misc.classification %></h3>
+                </div>
+                <div class="statsbox">
+                    <div class="stats">
+                        <h4>HP: <%= pokemonsIndex.stats.hp %></h4>
+                        <h4>Attk: <%= pokemonsIndex.stats.attack %></h4>
+                        <h4>Def: <%= pokemonsIndex.stats.defense %></h4>
+                    </div>
+                    <div class="stats">
+                        <h4>SpAttk: <%= pokemonsIndex.stats.spattack %></h4>
+                        <h4>SpDef: <%= pokemonsIndex.stats.spdefense %></h4>
+                        <h4>Speed: <%= pokemonsIndex.stats.speed %></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="editlink">
+        <!-- <a href="/pokemon/<#%= id %>/edit">Edit a Pokemon</a> -->
+        <button class="button"><a href="/pokemon/<%= id %>/edit">Edit a Pokemon</a></button>
     </div>
 </body>
 </html>
